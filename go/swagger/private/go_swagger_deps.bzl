@@ -3,12 +3,12 @@ load("@io_bazel_rules_go//go:def.bzl", "go_repository")
 def go_swagger_deps():
     go_repository(
         name = "com_github_go_openapi_analysis",
-        commit = "0473cb67199f68b8b7d90e641afd9e79ad36b851",
+        commit = "f59a71f0ece6f9dfb438be7f45148f006cbad88e",
         importpath = "github.com/go-openapi/analysis",
     )
     go_repository(
         name = "com_github_go_openapi_errors",
-        commit = "03cfca65330da08a5a440053faf994a3c682b5bf",
+        commit = "7bcb96a367bac6b76e6e42fa84155bb5581dcff8",
         importpath = "github.com/go-openapi/errors",
     )
 
@@ -26,37 +26,37 @@ def go_swagger_deps():
 
     go_repository(
         name = "com_github_go_openapi_loads",
-        commit = "a80dea3052f00e5f032e860dd7355cd0cc67e24d",
+        commit = "2a2b323bab96e6b1fdee110e57d959322446e9c9",
         importpath = "github.com/go-openapi/loads",
     )
 
     go_repository(
         name = "com_github_go_openapi_runtime",
-        commit = "2e9e988df6c290425033bacd425e008950c96be6",
+        commit = "4812642f0b54441f8762a06e5c6c318a28917683",
         importpath = "github.com/go-openapi/runtime",
     )
 
     go_repository(
         name = "com_github_go_openapi_spec",
-        commit = "e51c28f07047ad90caff03f6450908720d337e0c",
+        commit = "fa03337d7da5735229ee8f5e9d5d0b996014b7f8",
         importpath = "github.com/go-openapi/spec",
     )
 
     go_repository(
         name = "com_github_go_openapi_strfmt",
-        commit = "93a31ef21ac23f317792fff78f9539219dd74619",
+        commit = "4dd3d302e100bae008baedc42d446ce83bdd10ad",
         importpath = "github.com/go-openapi/strfmt",
     )
 
     go_repository(
         name = "com_github_go_openapi_swag",
-        commit = "e43299b4afa7bc7f22e5e82e3d48607230e4c177",
+        commit = "84f4bee7c0a6db40e3166044c7983c1c32125429",
         importpath = "github.com/go-openapi/swag",
     )
 
     go_repository(
         name = "com_github_go_openapi_validate",
-        commit = "035dcd74f1f61e83debe1c22950dc53556e7e4b2",
+        commit = "9b5947525af6a4843d2b9576e5943b9931ad535d",
         importpath = "github.com/go-openapi/validate",
     )
 
@@ -68,48 +68,72 @@ def go_swagger_deps():
 
     go_repository(
         name = "com_github_mailru_easyjson",
-        commit = "dffba8d13bbd998df17d8557570cdea0624b9d1d",
+        commit = "32fa128f234d041f196a9f3e0fea5ac9772c08e1",
         importpath = "github.com/mailru/easyjson",
     )
 
     go_repository(
         name = "in_gopkg_yaml_v2",
-        commit = "cd8b52f8269e0feb286dfeef29f8fe4d5b397e0b",
+        commit = "d670f9405373e636a5a2765eea47fac0c9bc91a4",
         importpath = "gopkg.in/yaml.v2",
     )
 
     go_repository(
         name = "com_github_asaskevich_govalidator",
-        commit = "948702997351133e1cc5a1b5842313ca46deeb0d",
+        commit = "4b3d68f87f176641ffc147420296013aff66ea32",
         importpath = "github.com/asaskevich/govalidator",
     )
 
     go_repository(
         name = "com_github_mitchellh_mapstructure",
-        commit = "d0303fe809921458f417bcf828397a65db30a7e4",
+        commit = "b4575eea38cca1123ec2dc90c26529b5c5acfcff",
         importpath = "github.com/mitchellh/mapstructure",
     )
 
     go_repository(
         name = "org_golang_x_net",
-        commit = "5961165da77ad3a2abf3a77ea904c13a76b0b073",
+        commit = "0ed95abb35c445290478a5348a7b38bb154135fd",
         importpath = "golang.org/x/net",
     )
 
     go_repository(
         name = "org_golang_x_text",
-        commit = "19e51611da83d6be54ddafce4a4af510cb3e9ea4",
+        commit = "e19ae1496984b1c655b8044a65c0300a3c878dd3",
         importpath = "golang.org/x/text",
     )
 
     go_repository(
         name = "com_github_PuerkitoBio_purell",
-        commit = "b938d81255b5473c57635324295cb0fe398c7a58",
+        commit = "1c4bec281e4bbc75b4f4a1bd923bdf1bd989a969",
         importpath = "github.com/PuerkitoBio/purell",
     )
 
     go_repository(
         name = "com_github_PuerkitoBio_urlesc",
-        commit = "bbf7a2afc14f93e1e0a5c06df524fbd75e5031e5",
+        commit = "de5bf2ad457846296e2031421a34e2568e304e35",
         importpath = "github.com/PuerkitoBio/urlesc",
+    )
+
+    go_repository(
+        name = "com_github_tylerb_graceful",
+        commit = "d72b0151351a13d0421b763b88f791469c4f5dc7",
+        importpath = "github.com/tylerb/graceful",
+    )
+
+    go_repository(
+        name = "com_github_jessevdk_go_flags",
+        commit = "f88afde2fa19a30cf50ba4b05b3d13bc6bae3079",
+        importpath = "github.com/jessevdk/go-flags",
+    )
+
+    go_repository(
+        name = "com_github_gorilla_context",
+        commit = "08b5f424b9271eedf6f9f0ce86cb9396ed337a42",
+        importpath = "github.com/gorilla/context",
+    )
+
+    go_repository(
+        name = "com_github_docker_go_units",
+        commit = "d59758554a3d3911fa25c0269de1ebe2f1912c39",
+        importpath = "github.com/docker/go-units",
     )
