@@ -8,9 +8,9 @@ filegroup(
 
 def _go_swagger_repository_tools_impl(ctx):
     if ctx.os.name == 'linux':
-        swagger_url = "https://github.com/go-swagger/go-swagger/releases/download/0.10.0/swagger_linux_amd64"
+        swagger_url = "https://github.com/go-swagger/go-swagger/releases/download/0.13.0/swagger_linux_amd64"
     elif ctx.os.name == 'mac os x':
-        swagger_url = "https://github.com/go-swagger/go-swagger/releases/download/0.10.0/swagger_darwin_amd64"
+        swagger_url = "https://github.com/go-swagger/go-swagger/releases/download/0.13.0/swagger_darwin_amd64"
     else:
         fail("Unsupported operating system: " + ctx.os.name)
 
