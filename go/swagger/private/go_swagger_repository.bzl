@@ -9,6 +9,15 @@ def _go_swagger_repository_impl(ctx):
     if result.return_code:
         fail("failed to make model dir: %s" % (result.stderr,))
 
+    if ctx.attr.config_file:
+        result = env_execute(ctx, ["mkdir", "-p", fake_repo + "/restapi"])
+        if result.return_code:
+            fail("failed to make model dir: %s" % (result.stderr,))
+
+        result = env_execute(ctx, ["cp", ctx.path(ctx.attr.config_file), fake_repo + "/restapi"])
+        if result.return_code:
+            fail("failed to copy config file %s: %s" % (ctx.attr.config_file, result.stderr))
+
     swagger = ctx.path(ctx.attr._swagger)
     cmd = "cd src; %s generate server -f %s -t %s -A %s" % (swagger, ctx.path(ctx.attr.src), ctx.attr.importpath, ctx.attr.name)
     cmds = ["bash", "-c", cmd]
@@ -69,6 +78,10 @@ go_swagger_repository = repository_rule(
         "importpath": attr.string(mandatory = True),
         "src": attr.label(
             allow_files = FileType([".json"]),
+            single_file = True,
+        ),
+        "config_file": attr.label(
+            allow_files = FileType([".go"]),
             single_file = True,
         ),
         "_swagger": attr.label(
