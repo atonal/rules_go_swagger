@@ -66,6 +66,8 @@ def _go_swagger_repository_impl(ctx):
     gazelle = ctx.path(ctx.attr._gazelle)
     cmds = [gazelle, '--go_prefix', ctx.attr.importpath, '--mode', 'fix',
             '--repo_root', ctx.path('')]
+    for domain in ctx.attr.known_imports:
+      cmds += ['--known_import', domain]
     cmds += [ctx.path('')]
     result = env_execute(ctx, cmds)
     if result.return_code:
@@ -84,6 +86,7 @@ go_swagger_repository = repository_rule(
             allow_files = FileType([".go"]),
             single_file = True,
         ),
+        "known_imports": attr.string_list(),
         "_swagger": attr.label(
             default = Label("@com_github_tnarg_rules_go_swagger_repository_tools//:bin/swagger"),
             allow_files = True,
