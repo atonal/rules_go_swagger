@@ -10,7 +10,7 @@ def _go_swagger_repository_impl(ctx):
         fail("failed to make model dir: %s" % (result.stderr,))
 
     swagger = ctx.path(ctx.attr._swagger)
-    cmd = "cd src; %s generate server -f %s -t %s --exclude-main" % (swagger, ctx.path(ctx.attr.src), ctx.attr.importpath)
+    cmd = "cd src; %s generate server -f %s -t %s -A %s" % (swagger, ctx.path(ctx.attr.src), ctx.attr.importpath, ctx.attr.name)
     cmds = ["bash", "-c", cmd]
     result = env_execute(ctx, cmds, environment={"GOPATH": ctx.path('')})
     if result.return_code:
@@ -40,6 +40,12 @@ def _go_swagger_repository_impl(ctx):
     result = env_execute(ctx, cmds)
     if result.return_code:
         fail("failed to move go generated client %s: %s" % (
+          fake_repo, result.stderr))
+
+    cmds = ["mv", fake_repo + "/cmd", "cmd"]
+    result = env_execute(ctx, cmds)
+    if result.return_code:
+        fail("failed to move go generated cmd %s: %s" % (
           fake_repo, result.stderr))
 
     cmds = ["rm", "-r", "src"]
